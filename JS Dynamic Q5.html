@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dynamic JavaScript Menu</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #263238;
+            padding: 15px 25px;
+            position: relative;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu-button {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .menu li {
+            position: relative;
+        }
+
+        .menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .menu a:hover {
+            background-color: #455a64;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 160px;
+            list-style: none;
+            background-color: #37474f;
+        }
+
+        .submenu.show {
+            display: block;
+        }
+
+        @media screen and (max-width: 768px) {
+            .menu-button {
+                display: block;
+            }
+
+            .menu {
+                display: none;
+                position: absolute;
+                top: 62px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                text-align: center;
+                background-color: #263238;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .submenu {
+                position: static;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">ShopZone</div>
+
+    <button class="menu-button"
+            id="menuButton"
+            aria-expanded="false">
+        ☰
+    </button>
+
+    <ul class="menu" id="menu">
+
+        <li><a href="#">Home</a></li>
+
+        <li id="productMenu">
+            <a href="#" id="productLink">Products</a>
+
+            <ul class="submenu" id="submenu">
+                <li><a href="#">Mobiles</a></li>
+                <li><a href="#">Laptops</a></li>
+                <li><a href="#">Accessories</a></li>
+            </ul>
+        </li>
+
+        <li><a href="#">Offers</a></li>
+        <li><a href="#">Contact</a></li>
+
+    </ul>
+</nav>
+
+<script>
+    const menuButton =
+        document.getElementById("menuButton");
+
+    const menu =
+        document.getElementById("menu");
+
+    const productMenu =
+        document.getElementById("productMenu");
+
+    const productLink =
+        document.getElementById("productLink");
+
+    const submenu =
+        document.getElementById("submenu");
+
+    menuButton.addEventListener("click", function () {
+        menu.classList.toggle("active");
+
+        const isOpen = menu.classList.contains("active");
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            isOpen
+        );
+    });
+
+    productMenu.addEventListener(
+        "mouseenter",
+        function () {
+            submenu.classList.add("show");
+        }
+    );
+
+    productMenu.addEventListener(
+        "mouseleave",
+        function () {
+            submenu.classList.remove("show");
+        }
+    );
+
+    productLink.addEventListener(
+        "click",
+        function (event) {
+            event.preventDefault();
+            submenu.classList.toggle("show");
+        }
+    );
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+            if (event.key === "Escape") {
+                menu.classList.remove("active");
+                submenu.classList.remove("show");
+
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+            }
+        }
+    );
+
+    document.addEventListener(
+        "click",
+        function (event) {
+            const clickedInsideNavbar =
+                event.target.closest(".navbar");
+
+            if (!clickedInsideNavbar) {
+                menu.classList.remove("active");
+                submenu.classList.remove("show");
+
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+            }
+        }
+    );
+</script>
+
+</body>
+</html>
