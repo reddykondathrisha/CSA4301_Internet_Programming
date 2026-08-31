@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Hover Effect</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .product-card {
+            width: 300px;
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease,
+                        box-shadow 0.3s ease;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card h2 {
+            margin: 15px 0 10px;
+        }
+
+        .product-card p {
+            color: #555;
+            padding: 0 15px;
+        }
+
+        .price {
+            color: #e65100;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 15px;
+        }
+
+        .product-card button {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 11px 22px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .product-card button:hover {
+            background-color: #cc5200;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="product-card">
+    <img src="https://via.placeholder.com/300x220"
+         alt="Wireless Headphones">
+
+    <h2>Wireless Headphones</h2>
+
+    <p>High-quality sound with long battery life.</p>
+
+    <div class="price">₹1,999</div>
+
+    <button onclick="addToCart()">Add to Cart</button>
+</div>
+
+<script>
+    function addToCart() {
+        alert("Product added to cart successfully!");
+    }
+</script>
+
+</body>
+</html>

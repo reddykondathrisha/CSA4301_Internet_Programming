@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mobile-First Blog</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #222;
+        }
+
+        header {
+            background-color: #263238;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        nav {
+            background-color: #37474f;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 12px;
+        }
+
+        nav a:hover {
+            background-color: #546e7a;
+        }
+
+        .container {
+            width: 100%;
+            padding: 15px;
+        }
+
+        main,
+        aside {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        article h2 {
+            margin-bottom: 10px;
+        }
+
+        article img {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        article p {
+            margin-bottom: 15px;
+        }
+
+        aside ul {
+            padding-left: 20px;
+        }
+
+        footer {
+            background-color: #263238;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        @media screen and (min-width: 600px) {
+            nav ul {
+                display: flex;
+                justify-content: center;
+            }
+
+            nav a {
+                padding: 15px 25px;
+            }
+        }
+
+        @media screen and (min-width: 900px) {
+            .container {
+                display: grid;
+                grid-template-columns: 3fr 1fr;
+                gap: 25px;
+                max-width: 1200px;
+                margin: auto;
+                padding: 30px;
+            }
+
+            main,
+            aside {
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>My Technology Blog</h1>
+    <p>Learn HTML, CSS and JavaScript</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Articles</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+
+    <main>
+        <article>
+            <h2>Introduction to Responsive Web Design</h2>
+
+            <p>
+                Written by Gnaneswari |
+                Published on August 3, 2026
+            </p>
+
+            <img src="https://via.placeholder.com/700x350"
+                 alt="Responsive web design example">
+
+            <p>
+                Responsive web design allows a website to
+                adjust properly across mobile, tablet and
+                desktop screens.
+            </p>
+
+            <p>
+                A mobile-first approach starts with a simple
+                mobile layout and adds styles for larger
+                devices using media queries.
+            </p>
+        </article>
+    </main>
+
+    <aside>
+        <h3>Recent Posts</h3>
+
+        <ul>
+            <li>Introduction to HTML</li>
+            <li>CSS Flexbox Guide</li>
+            <li>CSS Grid Layout</li>
+            <li>JavaScript Events</li>
+        </ul>
+    </aside>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 My Technology Blog</p>
+</footer>
+
+</body>
+</html>
